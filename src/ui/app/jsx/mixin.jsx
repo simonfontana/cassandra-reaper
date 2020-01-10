@@ -15,6 +15,7 @@
 //  limitations under the License.
 
 import React from "react";
+import CreateReactClass from 'create-react-class';
 import Button from 'react-bootstrap/lib/Button';
 import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import Tooltip from 'react-bootstrap/lib/Tooltip';
@@ -100,13 +101,13 @@ export const DeleteStatusMessageMixin = {
 
 };
 
-export const CFsListRender = React.createClass({
+export const CFsListRender = CreateReactClass({
     render: function() {
         return (
-            <div className="ReactTags__tags">
-              <div className="ReactTags__selected">
+            <div>
+              <div>
                 {this.props.list.map(function(listValue){
-                    return <span className="ReactTags__tag" key={listValue}>{listValue}</span>;
+                    return <span key={listValue}>{listValue}</span>;
                 })}
               </div>
             </div>
@@ -114,11 +115,11 @@ export const CFsListRender = React.createClass({
     }
 });
 
-export const CFsCountListRender = React.createClass({
+export const CFsCountListRender = CreateReactClass({
   render: function() {
       return (
-          <div className="ReactTags__tags">
-            <div className="ReactTags__selected">
+          <div>
+            <div>
               <OverlayTrigger
                 key={this.props.id}
                 placement="top"
@@ -156,10 +157,9 @@ export const humanFileSize = function(bytes, si) {
 }
 
 export const getUrlPrefix = function(location) {
-  const isDev = location.includes('webpack-dev-server');
   const contextPath = location.includes('/webui') ? location.substring(0, location.indexOf("/webui")) : '';
-  const URL_PREFIX = isDev ? 'http://127.0.0.1:8080' : contextPath;
-  return URL_PREFIX;
+  // GLOBAL_* variables are defined and assigned in webpack. See webpack.config.js
+  return (GLOBAL_IS_DEV ? `http://${GLOBAL_REAPER_HOST}:8080` : contextPath);
 }
 
 export const toast = function(notificationSystem, message, type, uid) {

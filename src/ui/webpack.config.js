@@ -19,9 +19,22 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var _commonDeps = [
-  "sb-admin-2.css", "react-widgets.css", "bootstrap.css", "theme.css",
-  "timeline.css", "font-awesome.css", "metisMenu.css", "style.scss",
-  "jquery", "react", "bootstrap", "metisMenu", "sb-admin-2", "rxjs", "bootstrap-multiselect.css", "datatables.net-bs.css"
+  "sb-admin-2.css",
+  "bootstrap.css",
+  "theme.css",
+  "timeline.css",
+  "font-awesome.css",
+  "metisMenu.css",
+  "style.scss",
+  "jquery",
+  "react",
+  "bootstrap",
+  "metisMenu",
+  "sb-admin-2",
+  "rxjs",
+  "bootstrap-multiselect.css",
+  "datatables.net-bs.css",
+  "react-datepicker.css"
 ];
 
 // include hot reload deps in dev mode
@@ -72,7 +85,6 @@ module.exports = {
     ],
     alias: {
       "jquery": "jquery/dist/jquery",
-      "react-widgets.css": "react-widgets/dist/css/react-widgets.css",
       "bootstrap.css": "bootstrap.css",
       "theme.css": "bootstrap-theme.css",
       "sb-admin-2.css": "startbootstrap-sb-admin-2/dist/css/sb-admin-2.css",
@@ -85,7 +97,8 @@ module.exports = {
       "datatables.net": "datatables.net/js/jquery.dataTables.js",
       "datatables.net-bs.js": "datatables.net-bs/js/dataTables.bootstrap.js",
       "datatables.net-bs.css": "datatables.net-bs/css/dataTables.bootstrap.css",
-      "bootstrap-multiselect.css": "react-boostrap-multiselect/css/bootstrap-multiselect.css"
+      "bootstrap-multiselect.css": "react-boostrap-multiselect/css/bootstrap-multiselect.css",
+      "react-datepicker.css": "react-datepicker/dist/react-datepicker.css"
     },
     extensions: ['.js', '.jsx']
   },
@@ -177,6 +190,7 @@ module.exports = {
       }
     }
   },
+  mode: isDev === "1" ? "development" : "production",
   module: {
     rules:[
       {

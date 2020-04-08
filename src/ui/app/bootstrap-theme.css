@@ -331,4 +331,31 @@ body {
   color: var(--gray-light) !important;
 }
 
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container > input {
+  width: 100%;
+  height: var(--input-height-base);
+  padding: var(--padding-base-vertical) var(--padding-base-horizontal);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--gray-light);
+  background-color: var(--input-bg);
+}
+
+.react-datepicker__day {
+  width: 30px;
+  line-height: 30px;
+  color: var(--gray-light) !important;
+}
+
+.react-datepicker__day--selected {
+  color: #fff !important;
+}
+
+.react-datepicker__day--today {
+  background-color: #eee;
+}
 /*# sourceMappingURL=bootstrap-theme.css.map */

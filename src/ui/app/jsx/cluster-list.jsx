@@ -19,9 +19,9 @@ import CreateReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import NodeStatus from "jsx/node-status";
 import {DeleteStatusMessageMixin, humanFileSize, getUrlPrefix} from "jsx/mixin";
-import Modal from 'react-bootstrap/lib/Modal';
-import ProgressBar from 'react-bootstrap/lib/ProgressBar';
-import Badge from 'react-bootstrap/lib/Badge';
+import Modal from 'react-bootstrap/Modal';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import Badge from 'react-bootstrap/Badge';
 import $ from "jquery";
 var NotificationSystem = require('react-notification-system');
 

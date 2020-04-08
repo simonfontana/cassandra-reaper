@@ -20,13 +20,11 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { getUrlPrefix } from "jsx/mixin";
 import $ from "jquery";
-import { DateTimePicker } from 'react-widgets';
-import momentLocalizer from 'react-widgets-moment';
+import DatePicker from "react-datepicker";
 import Moment from 'moment';
 import moment from "moment";
 
 Moment.locale(navigator.language);
-momentLocalizer();
 
 const repairForm = CreateReactClass({
 
@@ -428,10 +426,14 @@ const repairForm = CreateReactClass({
         <div className="form-group">
           <label htmlFor="in_startTime" className="col-sm-3 control-label">Start time*</label>
           <div className="col-sm-9 col-md-7 col-lg-5">
-            <DateTimePicker
-              value={this.state.startTime}
-              onChange={value => this.setState({ startTime: value })}
-              step={15}
+            <DatePicker
+              selected={this.state.startTime}
+              onChange={value => this.setState({startTime: value})}
+              showTimeSelect
+              timeFormat="HH:mm"
+              timeIntervals={15}
+              timeCaption="Time"
+              dateFormat="d MMMM yyyy HH:mm"
             />
           </div>
         </div>

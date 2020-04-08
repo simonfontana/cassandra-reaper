@@ -28,7 +28,7 @@ var serverStatus = CreateReactClass({
     return {isDisconnected: false};
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._statusSubscription = this.props.statusObservableTimer.subscribeOnNext(obs =>
         obs.subscribe(this._onStatusOk, this._onStatusError, this._onStatusOk));
   },

@@ -31,7 +31,7 @@ const clusterSelection = CreateReactClass({
     };
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     const currentCluster: string = $.urlParam('currentCluster');
 
     if (currentCluster !== "null") {

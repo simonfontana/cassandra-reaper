@@ -48,7 +48,7 @@ const SnapshotScreen = CreateReactClass({
     };
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._clusterNamesSubscription = this.props.clusterNames.subscribeOnNext(obs =>
       obs.subscribeOnNext(names => this.setState({clusterNames: names}))
     );

@@ -85,7 +85,7 @@ const repairForm = CreateReactClass({
     };
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._repairResultSubscription = this.props.addRepairResult.subscribeOnNext(obs =>
       obs.subscribe(
         r => this.setState({addRepairResultMsg: null}),

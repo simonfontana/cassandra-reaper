@@ -54,7 +54,7 @@ const NodeStatus = CreateReactClass({
               communicating: false, tokens:[]};
     },
 
-    componentWillMount: function() {
+    UNSAFE_componentWillMount: function() {
       this._getNodeTokens();
     },
   

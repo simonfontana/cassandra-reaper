@@ -32,7 +32,7 @@ const Streams = CreateReactClass({
       return {streamSessions: [], scheduler: {}};
     },
 
-    componentWillMount: function() {
+    UNSAFE_componentWillMount: function() {
       this._collectStreams();
       this.setState({scheduler : setInterval(this._collectStreams, 10000)});
     },

@@ -30,7 +30,7 @@ const DroppedMessages = CreateReactClass({
       return {droppedMessages: [], scheduler: {}};
     },
 
-    componentWillMount: function() {
+    UNSAFE_componentWillMount: function() {
       this._collectDroppedMessages();
       this.setState({scheduler : setInterval(this._collectDroppedMessages, 10000)});
     },

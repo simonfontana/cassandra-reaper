@@ -35,7 +35,7 @@ const diagEventsList = CreateReactClass({
     return {table: null};
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
 
     this._listenSubscription = this.props.listenSubscriptionSubject.subscribeOnNext(this._clear);
     this._clusterSelectedSubscription = this.props.clusterSelected.subscribeOnNext(this._clear);

@@ -80,7 +80,7 @@ export const StatusUpdateMixin = {
 
 export const DeleteStatusMessageMixin = {
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._deleteResultSubscription = this.props.deleteResult.subscribeOnNext(obs =>
       obs.subscribe(
         r => this.setState({deleteResultMsg: null}),

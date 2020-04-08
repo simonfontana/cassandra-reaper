@@ -31,7 +31,7 @@ const ActiveCompactions = CreateReactClass({
       return {activeCompactions: [], scheduler: {}};
     },
 
-    componentWillMount: function() {
+    UNSAFE_componentWillMount: function() {
       this._listActiveCompactions();
       this.setState({scheduler : setInterval(this._listActiveCompactions, 1000)});
     },

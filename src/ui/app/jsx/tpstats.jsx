@@ -30,7 +30,7 @@ const TpStats = CreateReactClass({
       return {tpstats: [], scheduler: {}};
     },
 
-    componentWillMount: function() {
+    UNSAFE_componentWillMount: function() {
       this._collectTpstats();
       this.setState({scheduler : setInterval(this._collectTpstats, 10000)});
     },

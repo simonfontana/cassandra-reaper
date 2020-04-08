@@ -36,7 +36,7 @@ const SegmentList = CreateReactClass({
       runningCollapsed: false, doneCollapsed: false, notStartedCollapsed: false};
     },
   
-    componentWillMount: function() {
+    UNSAFE_componentWillMount: function() {
         this._refreshSegments();
         this.setState({scheduler : setInterval(this._refreshSegments, 30000)});
     },

@@ -45,7 +45,7 @@ const Cluster = CreateReactClass({
           };
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._refreshClusterStatus();
   },
 
@@ -356,7 +356,7 @@ const clusterList = CreateReactClass({
     return {clusterNames: [], deleteResultMsg: null, clusterFilter: "", nodeFilter: ""};
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._clusterNamesSubscription = this.props.clusterNames.subscribeOnNext(obs =>
       obs.subscribeOnNext(names => this.setState({clusterNames: names}))
     );

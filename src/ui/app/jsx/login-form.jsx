@@ -30,7 +30,7 @@ const loginForm = CreateReactClass({
     return {loginResultMsg: null};
   },
 
-  componentWillMount: function () {
+  UNSAFE_componentWillMount: function () {
   this._loginResultSubscription = this.props.loginResult.subscribeOnNext(obs =>
       obs.subscribe(
         response => {

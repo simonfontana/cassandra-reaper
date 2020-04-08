@@ -32,7 +32,7 @@ const ClientRequestLatency = CreateReactClass({
       return {clientRequestLatencies: [], scheduler: {}};
     },
 
-    componentWillMount: function() {
+    UNSAFE_componentWillMount: function() {
       this._collectClientRequestLatencies();
       this.setState({scheduler : setInterval(this._collectclientRequestLatencies, 10000)});
     },

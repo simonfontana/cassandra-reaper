@@ -99,7 +99,7 @@ const eventSubscriptionList = CreateReactClass({
     return {eventSubscriptions: [], deleteResultMsg: null};
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._subscriptionsSubscription = this.props.eventSubscriptions.subscribeOnNext(obs =>
       obs.subscribeOnNext(subscriptions => {
         this.setState({eventSubscriptions: subscriptions});

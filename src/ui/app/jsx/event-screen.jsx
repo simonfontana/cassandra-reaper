@@ -55,7 +55,7 @@ const eventScreen = CreateReactClass({
     return {activeSubscription: null, activeEventSource: null};
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
 
     this._listenSubscription = this.props.listenSubscriptionSubject.subscribeOnNext(subscription => {
 

@@ -29,7 +29,7 @@ const sidebar = CreateReactClass({
     return {logoutResultMsg: null, currentCluster: null};
   },
 
-  componentWillMount: function () {
+  UNSAFE_componentWillMount: function () {
     this._logoutResultSubscription = this.props.logoutResult.subscribeOnNext(obs =>
         obs.subscribe(
         response => {

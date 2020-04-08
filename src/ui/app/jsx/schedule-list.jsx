@@ -174,7 +174,7 @@ const scheduleList = CreateReactClass({
     };
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._schedulesSubscription = this.props.schedules.subscribeOnNext(obs =>
       obs.subscribeOnNext(schedules => {
         const sortedSchedules = Array.from(schedules);

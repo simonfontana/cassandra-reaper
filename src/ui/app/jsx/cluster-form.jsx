@@ -30,7 +30,7 @@ const clusterForm = CreateReactClass({
     return {addClusterResultMsg: null, seed_node:"", jmx_port:"7199", submitEnabled: false};
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._clusterResultSubscription = this.props.addClusterResult.subscribeOnNext(obs =>
       obs.subscribe(
         r => this.setState({addClusterResultMsg: null}),

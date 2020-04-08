@@ -54,7 +54,7 @@ const subscriptionForm = CreateReactClass({
     };
   },
 
-  componentWillMount: function() {
+  UNSAFE_componentWillMount: function() {
     this._scheduleResultSubscription = this.props.addSubscriptionResult.subscribeOnNext(obs =>
       obs.subscribe(
         r => this.setState({addSubscriptionResultMsg: null}),

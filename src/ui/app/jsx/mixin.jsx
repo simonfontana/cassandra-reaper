@@ -118,24 +118,23 @@ export const CFsListRender = CreateReactClass({
 export const CFsCountListRender = CreateReactClass({
   render: function() {
       return (
-          <div>
-            <div>
-              <OverlayTrigger
-                key={this.props.id}
-                placement="top"
-                overlay={
-                  <Tooltip id={`tooltip-bottom`}>
-                    {this.props.list.sort().map(function(table){
-                      return <div>{table}</div>;
-                    })
-                    }
-                  </Tooltip>
+        <div>
+          <OverlayTrigger
+            placement="top"
+            overlay={
+              <Tooltip id={this.props.id + '-tooltip'}>
+                {this.props.list.sort().map(function(table){
+                  return <div key={table}>{table}</div>;
+                })
                 }
-              >
-                <Button variant="secondary" className="btn btn-xs">{this.props.list.length>0?this.props.list.length:"All"} table{this.props.list.length==1?"":"s"}</Button>
-              </OverlayTrigger>
-            </div>
-          </div>
+              </Tooltip>
+            }
+          >
+            <Button variant="secondary" className="btn btn-xs repairs-done-accented-value">
+              {this.props.list.length > 0 ? this.props.list.length : "All" } table{this.props.list.length === 1 ? "" : "s"}
+            </Button>
+          </OverlayTrigger>
+        </div>
       )
   }
 });

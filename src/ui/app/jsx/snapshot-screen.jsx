@@ -170,7 +170,7 @@ const SnapshotScreen = CreateReactClass({
     <button type="button" className="btn btn-success" style={refreshStyle}
         onClick={this._handleRefreshClick} disabled={!this.state.refreshEnabled}>Refresh</button>
     <button type="button" className="btn btn-success" style={progressStyle}
-        disabled="true">Refreshing...</button>
+        disabled={true}>Refreshing...</button>
     </div>
   </div>
 </form>

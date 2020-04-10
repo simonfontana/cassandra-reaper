@@ -27,7 +27,7 @@ const clusterSelection = CreateReactClass({
   getInitialState: function() {
     return {
       clusterNames: [],
-      currentCluster: null,
+      currentCluster: "",
     };
   },
 

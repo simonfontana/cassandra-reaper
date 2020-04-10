@@ -323,6 +323,16 @@ body {
   border: 1px solid var(--brand-primary);
 }
 
+.repairs-done-accented-value {
+  color: var(--text-color) !important;
+  background-color: var(--body-bg) !important;
+}
+
+.progress-bar {
+  color: var(--text-color) !important;
+  background-color: var(--body-bg) !important;
+}
+
 .select__control {
   border-radius: 0px !important;
 }

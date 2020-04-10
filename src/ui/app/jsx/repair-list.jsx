@@ -34,7 +34,7 @@ const TableRow = CreateReactClass({
   },
 
   segmentsButton: function(id) {
-    return <Button bsSize="xs" bsStyle="info" onClick={() => this._viewSegments(id)}>View segments</Button>
+    return <Button bssize="xs" bsstyle="info" onClick={() => this._viewSegments(id)}>View segments</Button>
   },
 
   render: function() {
@@ -67,15 +67,21 @@ const TableRow = CreateReactClass({
       progressStyleColor = "danger";
     }
 
-
-    
-    const btnStartStop = this.props.row.state == 'ABORTED' ? null : this.statusUpdateButton();
-    const btnAbort = state == 'RUNNING' || state == 'PAUSED' ? this.abortButton() : this.deleteButton();
+    const btnStartStop = (this.props.row.state === 'ABORTED' ? null : this.statusUpdateButton());
+    const btnAbort = (state === 'RUNNING') || (state === 'PAUSED' ? this.abortButton() : this.deleteButton());
     const btnSegment = this.segmentsButton(this.props.row.id);
-    const active = state == 'RUNNING';
-    let repairProgress = <ProgressBar now={Math.round((segsRepaired*100)/segsTotal)} active={active} bsStyle={progressStyleColor} 
-                   label={segsRepaired + '/' + segsTotal}
-                   key={progressID}/>
+    const progressNow = Math.round((segsRepaired * 100) / segsTotal)
+    const progressLabel = `${segsRepaired} / ${segsTotal}`
+
+    const repairProgress = (
+      <ProgressBar
+        now={progressNow}
+        active={state === 'RUNNING' ? 1 : 0}
+        bsstyle={progressStyleColor}
+        label={progressLabel}
+      />
+    );
+
 
     return (
     <tr>
@@ -391,17 +397,17 @@ const repairList = CreateReactClass({
 
     let modalClose = () => this.setState({ modalShow:false, repairRunId: ''});
 
-    const segmentModal = <SegmentModal show={this.state.modalShow} onHide={modalClose} repairRunId={this.state.repairRunId} height={this.state.height} width={this.state.width}/>;
+    const segmentModal = <SegmentModal show={this.state.modalShow} onHide={modalClose} repairrunid={this.state.repairRunId} height={this.state.height} width={this.state.width}/>;
     if (this.state.repairs !== null) {
         rowsRunning = this.state.repairs.sort(compareStartTimeReverse)
             .filter(repair => this.state.currentCluster === "all" || this.state.currentCluster === repair.cluster_name)
             .filter(repair => (repair.state === "RUNNING" || repair.state === "PAUSED" || repair.state === "NOT_STARTED"))
             .map(repair =>
                 <tbody key={repair.id + '-rows'}>
-                    <TableRow row={repair} key={repair.id + '-head'}
+                    <TableRow row={repair}
                               deleteSubject={this.props.deleteSubject}
                               updateStatusSubject={this.props.updateStatusSubject} showSegments={this._displaySegments}/>
-                    <TableRowDetails row={repair} key={repair.id + '-details'}
+                    <TableRowDetails row={repair}
                                      updateIntensitySubject={this.props.updateIntensitySubject}/>
                 </tbody>
             );
@@ -412,10 +418,10 @@ const repairList = CreateReactClass({
             .slice(0, this.state.numberOfElementsToDisplay)
             .map(repair =>
                 <tbody key={repair.id + '-rows'}>
-                    <TableRow row={repair} key={repair.id + '-head'}
+                    <TableRow row={repair}
                               deleteSubject={this.props.deleteSubject}
                               updateStatusSubject={this.props.updateStatusSubject} showSegments={this._displaySegments}/>
-                    <TableRowDetails row={repair} key={repair.id + '-details'}/>
+                    <TableRowDetails row={repair}/>
                 </tbody>
             );
     }
@@ -586,7 +592,7 @@ const SegmentModal = CreateReactClass({
   },
   render() {
     return (
-      <Modal  {...this.props} bsSize="large" aria-labelledby="contained-modal-title-lg" dialogClassName="large-modal">
+      <Modal  {...this.props} bssize="large" aria-labelledby="contained-modal-title-lg" dialogClassName="large-modal">
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-lg">Segments</Modal.Title>
         </Modal.Header>

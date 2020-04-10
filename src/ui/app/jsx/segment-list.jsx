@@ -368,7 +368,7 @@ const Segment = CreateReactClass({
                 <td>{this.props.segment.tokenRange.baseRange.start}</td>
                 <td>{this.props.segment.tokenRange.baseRange.end}</td>
                 <td>{this.props.segment.failCount}</td>
-                <td><Button bsStyle='primary'>{this.props.segment.state}</Button></td>
+                <td><Button bsstyle='primary'>{this.props.segment.state}</Button></td>
             </tr>
         } else if (this.props.segment.state === 'RUNNING' || this.props.segment.state === 'STARTED') {
             return  <tr>
@@ -376,10 +376,10 @@ const Segment = CreateReactClass({
                 <td>{this.props.segment.tokenRange.baseRange.start}</td>
                 <td>{this.props.segment.tokenRange.baseRange.end}</td>
                 <td>{this.props.segment.failCount}</td>
-                <td><Button bsStyle='warning'>{this.props.segment.state}</Button></td>
+                <td><Button bsstyle='warning'>{this.props.segment.state}</Button></td>
                 <td>{this.props.segment.coordinatorHost}</td>
                 <td>{moment(this.props.segment.startTime).format("LLL")}</td>
-                <td><Button bsStyle='danger' onClick={() => this._abortSegment()}>Abort</Button></td>
+                <td><Button bsstyle='danger' onClick={() => this._abortSegment()}>Abort</Button></td>
             </tr>
         } else {
             return  <tr>
@@ -387,12 +387,12 @@ const Segment = CreateReactClass({
                 <td>{this.props.segment.tokenRange.baseRange.start}</td>
                 <td>{this.props.segment.tokenRange.baseRange.end}</td>
                 <td>{this.props.segment.failCount}</td>
-                <td><Button bsStyle='success'>{this.props.segment.state}</Button></td>
+                <td><Button bsstyle='success'>{this.props.segment.state}</Button></td>
                 <td>{this.props.segment.coordinatorHost}</td>
                 <td>{moment(this.props.segment.startTime).format("LLL")}</td>
                 <td>{moment(this.props.segment.endTime).format("LLL")}</td>
                 <td>{moment.duration(moment(this.props.segment.endTime).diff(moment(this.props.segment.startTime))).humanize()}</td>
-                <td><Button bsStyle='danger' onClick={() => this._abortSegment()}>Replay</Button></td>
+                <td><Button bsstyle='danger' onClick={() => this._abortSegment()}>Replay</Button></td>
             </tr>
         }
     }
